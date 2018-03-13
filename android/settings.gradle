@@ -1,0 +1,3 @@
+rootProject.name = 'club_chat'
+
+include ':app'
