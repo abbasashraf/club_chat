@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { View, Text } from 'react-native'
 
 
 class Password extends Component {
     state = {  }
     render() {
         return (
-            <div>Passord</div>
+            <View></View>
+           
         )
     }
 }

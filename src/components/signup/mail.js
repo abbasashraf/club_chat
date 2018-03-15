@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { View, Text } from 'react-native'
 
 
 class Mail extends Component {
     state = {  }
     render() {
         return (
-            <div>mail</div>
+            <View></View>
+
         );
     }
 }
