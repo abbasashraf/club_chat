@@ -6,11 +6,9 @@ class Login extends Component {
     state = {}
     render() {
         return (
-            <View>
-                <Text>
-                    Login
-                </Text>
-            </View>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>Login</Text>
+          </View>
       
         )
     }
