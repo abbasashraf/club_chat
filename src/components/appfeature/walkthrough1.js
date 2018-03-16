@@ -1,22 +1,22 @@
+import { View,Text,Button } from 'react-native';
 import React, { Component } from 'react';
-import {Button, View, Text } from 'react-native'
 
 
-class Gender extends Component {
+class Walkthrough1 extends Component {
     state = {  }
     render() {
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Gender</Text>
+            <Text>Walkthrough1</Text>
 
             <Button
                 title="next"
-                onPress={() => this.props.navigation.navigate('TakePicture')}></Button>
+                onPress={() => this.props.navigation.navigate('Walkthrough2')}></Button>
 
         </View>
-         
-        )
+
+        );
     }
 }
 
-export default Gender
+export default Walkthrough1;

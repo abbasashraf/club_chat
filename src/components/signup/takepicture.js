@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native'
+import {Button, View, Text } from 'react-native'
 
 
 
 class TakePicture extends Component {
-    state = {  }
+    state = {}
     render() {
         return (
-           <View></View>
-            
-   
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                <Text>TakePicture</Text>
+
+                <Button
+                    title="next"
+                    onPress={() => this.props.navigation.navigate('Walkthrough1')}></Button>
+
+            </View>
+
+
         )
     }
 }

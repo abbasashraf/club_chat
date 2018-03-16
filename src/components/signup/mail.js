@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native'
+import {Button, View, Text } from 'react-native'
 
 
 class Mail extends Component {
-    state = {  }
+    state = {}
     render() {
         return (
-            <View></View>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                <Text>Mail</Text>
+
+                <Button
+                    title="next"
+                    onPress={() => this.props.navigation.navigate('Surname')}></Button>
+
+            </View>
 
         );
     }
 }
 
-export default(Mail);
+export default (Mail);
