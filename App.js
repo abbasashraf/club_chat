@@ -8,6 +8,15 @@ import Login from './src/components/login/login'
 
 const RootStack = StackNavigator(
   {
+    Walkthrough1: {
+      screen: Walkthrough1,
+    },
+    Walkthrough2: {
+      screen: Walkthrough2,
+    },
+    Walkthrough3: {
+      screen: Walkthrough3,
+    },
     Login: {
       screen: Login,
     },
@@ -28,15 +37,6 @@ const RootStack = StackNavigator(
     },
     TakePicture: {
       screen: TakePicture,
-    },
-    Walkthrough1: {
-      screen: Walkthrough1,
-    },
-    Walkthrough2: {
-      screen: Walkthrough2,
-    },
-    Walkthrough2: {
-      screen: Walkthrough3,
     },
     //   Details: {
     //     screen: DetailsScreen,
@@ -95,7 +95,7 @@ const RootStack = StackNavigator(
     headerMode: 'none',
   },
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'Walkthrough1',
   }
 
 );
