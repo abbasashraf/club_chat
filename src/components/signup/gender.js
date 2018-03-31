@@ -29,11 +29,15 @@ class Gender extends Component {
 
                         <Button
                             onPress={() => this.props.navigation.navigate('TakePicture')}
-                            width={window.width - 200} marginVertical={10}>
+                            width={window.width - 200} 
+                            marginVertical={10}
+                            height={40}>
                             MALE
                     </Button>
                         <Button onPress={() => this.props.navigation.navigate('TakePicture')}
-                            width={window.width - 200} marginVertical={10}>
+                            width={window.width - 200} 
+                            marginVertical={10}
+                            height={40}>
                             FEMALE
                     </Button>
                     </View>

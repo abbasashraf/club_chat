@@ -8,15 +8,15 @@ import Login from './src/components/login/login'
 
 const RootStack = StackNavigator(
   {
+    Login: {
+      screen: Login,
+    },
     TakePicture: {
       screen: TakePicture,
     },
     BirthDate: {
       screen: BirthDate,
     },
-    // Login: {
-    //   screen: Login,
-    // },
     Walkthrough1: {
       screen: Walkthrough1,
     },

@@ -1,8 +1,7 @@
+'use strict';
 import React, { Component } from 'react';
 import { Dimensions, View, Text, StyleSheet, TouchableOpacity, Icon } from 'react-native'
 import Button from './../../Uicomponents/button';
-// import { RNCamera } from 'react-native-camera';
-import Camera from 'react-native-camera';
 
 
 
@@ -13,29 +12,6 @@ const window = Dimensions.get('window');
 class TakePicture extends Component {
     state = {}
 
-    takePicture = async function () {
-        if (this.camera) {
-
-            this.camera.capture()
-
-            const options = { quality: 0.5, base64: true };
-            const data = await this.camera.takePictureAsync(options)
-            console.log(data.uri);
-        }
-    };
-    // takePicture() {
-    //     this.camera.capture()
-    //         .then((data) => console.log(data))
-    //         .catch(err => console.error(err));
-    // }
-    // takePicture() {
-    //     //const options = { quality: 0.5, base64: true };
-    //     //options.location = ...
-    //     this.camera.capture()
-    //         .then((data) => console.log(data))
-    //         // .catch(err => console.error(err));
-    // }
-
 
 
     render() {
@@ -44,15 +20,12 @@ class TakePicture extends Component {
 
 
             <View style={styles.container}>
-                <Camera
-                    ref={(cam) => {
-                        this.camera = cam;
-                    }}
-                    // onBarCodeRead={this.onBarCodeRead.bind(this)}
-                    style={styles.preview}
-                    aspect={Camera.constants.Aspect.fill}>
-                    <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
-                </Camera>
+                <Button onPress={() => this.props.navigation.navigate('Walkthrough1')}
+                    width={window.width - 200}
+                    marginVertical={10}
+                    height={40}>
+                    camera
+                </Button>
             </View>
         )
     }

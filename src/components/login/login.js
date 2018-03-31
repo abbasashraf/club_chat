@@ -54,7 +54,8 @@ class Login extends Component {
 
                         <Button 
                         width={window.width-80}
-                        marginVertical={40}>
+                        marginVertical={40}
+                        height={40}>
                             SIGN IN
                         </Button>
                         <View style={styles.signUpContainer}>

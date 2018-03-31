@@ -37,7 +37,10 @@ class Mail extends Component {
                         <Text style={styles.buttonText}>NEXT</Text>
                     </TouchableOpacity> */}
 
-                    <Button width={window.width - 200} onPress={() => this.props.navigation.navigate('Surname')}>
+                    <Button
+                        width={window.width - 200}
+                        onPress={() => this.props.navigation.navigate('Surname')}
+                        height={40}>
                         NEXT
                     </Button>
                 </View>

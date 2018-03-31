@@ -8,7 +8,7 @@ const Button = ({ onPress, children, width, marginVertical, border,borderColor,h
     const buttonContainer = {
         backgroundColor: '#F28664',
         borderRadius: 50,
-        height: 40,
+        // height: 40,
         marginVertical: marginVertical,
         justifyContent: 'center',
         width: width,

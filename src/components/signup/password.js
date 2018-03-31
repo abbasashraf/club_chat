@@ -36,7 +36,10 @@ class Password extends Component {
                     {/* <TouchableOpacity onPress={() => this.props.navigation.navigate('BirthDate')} style={styles.buttonStyle}>
                         <Text style={styles.buttonText}>NEXT</Text>
                     </TouchableOpacity> */}
-                    <Button onPress={() => this.props.navigation.navigate('BirthDate')} width={window.width - 200}>
+                    <Button
+                        onPress={() => this.props.navigation.navigate('BirthDate')}
+                        width={window.width - 200}
+                        height={40}>
                         NEXT
                     </Button>
                 </View>

@@ -37,7 +37,10 @@ class Surname extends Component {
                         <Text style={styles.buttonText}>NEXT</Text>
                     </TouchableOpacity> */}
 
-                    <Button onPress={() => this.props.navigation.navigate('Password')} width={window.width - 200}>
+                    <Button
+                        onPress={() => this.props.navigation.navigate('Password')}
+                        width={window.width - 200}
+                        height={40}>
                         NEXT
                     </Button>
                 </View>
