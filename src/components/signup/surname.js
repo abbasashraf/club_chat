@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Dimensions, Button, View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { Dimensions, View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import Button from './../../Uicomponents/button'
 
 const window = Dimensions.get('window');
 
@@ -32,9 +33,13 @@ class Surname extends Component {
                 </View>
 
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Password')} style={styles.buttonStyle}>
+                    {/* <TouchableOpacity onPress={() => this.props.navigation.navigate('Password')} style={styles.buttonStyle}>
                         <Text style={styles.buttonText}>NEXT</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
+
+                    <Button onPress={() => this.props.navigation.navigate('Password')} width={window.width - 200}>
+                        NEXT
+                    </Button>
                 </View>
             </View>
 
@@ -82,20 +87,20 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    buttonStyle: {
-        backgroundColor: '#2980b6',
-        borderRadius: 50,
-        width: window.width - 200,
-        height: 40,
-        justifyContent: 'center',
+    // buttonStyle: {
+    //     backgroundColor: '#2980b6',
+    //     borderRadius: 50,
+    //     width: window.width - 200,
+    //     height: 40,
+    //     justifyContent: 'center',
 
-    },
-    buttonText: {
-        color: '#fff',
-        textAlign: 'center',
-        fontWeight: '700',
-        fontSize: 12
-    },
+    // },
+    // buttonText: {
+    //     color: '#fff',
+    //     textAlign: 'center',
+    //     fontWeight: '700',
+    //     fontSize: 12
+    // },
 });
 
 export default Surname;

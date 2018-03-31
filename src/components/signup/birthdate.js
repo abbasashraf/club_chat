@@ -1,11 +1,41 @@
 import React, { Component } from 'react';
-import { Dimensions, Button, View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { Dimensions, View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import Button from './../../Uicomponents/button';
+import DateTimePicker from 'react-native-modal-datetime-picker';
+
 
 const window = Dimensions.get('window');
 
 class BirthDate extends Component {
-    state = {}
+    constructor(props) {
+        super(props);
+        this.state = {
+            isDateTimePickerVisible: false,
+            date: new Date()
+        };
+    }
+
+
+
+    _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
+
+    _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
+
+    _handleDatePicked = (date) => {
+        console.log('A date has been picked: ', date);
+        this.setState({ date: date })
+        this._hideDateTimePicker();
+        this.props.navigation.navigate('Gender')
+    };
+
+
+
     render() {
+        const { date } = this.state
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        console.log(`${month}/${day}/${year}`, "date date")
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 
@@ -18,23 +48,32 @@ class BirthDate extends Component {
                 </View>
                 <View style={styles.formContainer}>
 
-                    <View>
-                        <TextInput style={styles.input}
-                            underlineColorAndroid='transparent'
-                            autoCapitalize="none"
-                            onChange={ev => this.setState({ email: ev.nativeEvent.text })}
-                            autoCorrect={false}
-                            keyboardType='email-address'
-                            returnKeyType="next"
-                            placeholder='Birth Date'
-                            placeholderTextColor='rgba(225,225,225,0.8)' />
+                    <View >
+                    <Text style={{ color: "white", fontSize: 12, fontWeight: 'bold', marginVertical: 6 }}>Birth Date</Text>
+                        <TouchableOpacity onPress={this._showDateTimePicker} style={{width:'100%'}}>
+                            <Text style={{color:'white', fontSize: 30, fontWeight: 'bold'}}>{`${day} / ${month} / ${year}`}</Text>
+                        </TouchableOpacity>
+                        <DateTimePicker
+                            isVisible={this.state.isDateTimePickerVisible}
+                            onConfirm={this._handleDatePicked}
+                            onCancel={this._hideDateTimePicker}
+                            mode='date'
+                            datePickerModeAndroid='spinner'
+                            
+                        />
                     </View>
                 </View>
 
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Gender')} style={styles.buttonStyle}>
+                    {/* <TouchableOpacity onPress={() => this.props.navigation.navigate('Gender')} style={styles.buttonStyle}>
                         <Text style={styles.buttonText}>NEXT</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
+
+                    {/* <Button onPress={() => this.props.navigation.navigate('Gender')}
+                        width={window.width - 200}
+                        marginVertical={30}>
+                        NEXT
+                    </Button> */}
                 </View>
             </View>
 
@@ -66,13 +105,13 @@ const styles = StyleSheet.create({
         width: window.width,
         alignItems: 'center',
         justifyContent: 'center',
+        //      borderColor: 'red',
+        // borderWidth: 4,
+
     },
     input: {
         height: 40,
-        borderBottomWidth: 1,
-        borderBottomColor: 'white',
         padding: 0,
-        color: 'white',
         width: window.width - 80
 
     },
@@ -82,20 +121,20 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    buttonStyle: {
-        backgroundColor: '#2980b6',
-        borderRadius: 50,
-        width: window.width - 200,
-        height: 40,
-        justifyContent: 'center',
+    // buttonStyle: {
+    //     backgroundColor: '#2980b6',
+    //     borderRadius: 50,
+    //     width: window.width - 200,
+    //     height: 40,
+    //     justifyContent: 'center',
 
-    },
-    buttonText: {
-        color: '#fff',
-        textAlign: 'center',
-        fontWeight: '700',
-        fontSize: 12
-    },
+    // },
+    // buttonText: {
+    //     color: '#fff',
+    //     textAlign: 'center',
+    //     fontWeight: '700',
+    //     fontSize: 12
+    // },
 });
 
 export default BirthDate;

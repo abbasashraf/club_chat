@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Dimensions, Button, View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native'
-
+import { Dimensions, View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import Button from './../../Uicomponents/button'
 const window = Dimensions.get('window');
 
 class Login extends Component {
@@ -47,16 +47,23 @@ class Login extends Component {
                             <Text style={{ color: "white", fontSize: 12 }}>Forgot Password ?</Text>
                         </View>
 
-                        <TouchableOpacity style={styles.buttonContainer}>
+                        {/* <TouchableOpacity style={styles.buttonContainer}>
                             <Text style={styles.buttonText}>SIGN IN</Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
+
+
+                        <Button 
+                        width={window.width-80}
+                        marginVertical={40}>
+                            SIGN IN
+                        </Button>
                         <View style={styles.signUpContainer}>
                             <Text style={{ color: "white", fontSize: 12 }}>
-                                Don't have an account ? 
+                                Don't have an account ?
                             <Text
-                                    style={{ color: "white", fontSize: 12, fontWeight:'700' }}
+                                    style={{ color: "white", fontSize: 12, fontWeight: '700' }}
                                     onPress={() => this.props.navigation.navigate('Mail')} >
-                                     Sign Up
+                                    Sign Up
                                 </Text>
                             </Text>
                         </View>
@@ -67,6 +74,9 @@ class Login extends Component {
         )
     }
 }
+
+
+
 
 
 
@@ -99,13 +109,13 @@ const styles = StyleSheet.create({
 
     formContainer: {
         flex: 1,
-        paddingTop: 90,
+        paddingTop: 80,
         // borderColor: 'red',
         // borderWidth: 4,
         width: window.width,
         alignItems: 'center',
         justifyContent: 'center',
-        
+
 
     },
     input: {
@@ -125,32 +135,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginVertical: 6
     },
-    buttonContainer: {
-        backgroundColor: '#2980b6',
-        borderRadius: 50,
-        // paddingVertical: 10,
-        height:40,
-        marginVertical: 30,
-        justifyContent: 'center',
-        
-    },
-    buttonText: {
-        color: '#fff',
-        textAlign: 'center',
-        fontWeight: '700',
-        fontSize: 12
-    },
     signUpContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-
-
-    },
-    singupStyle: {
-
-    },
-    signupbtnstyle: {
-
     }
 
 });

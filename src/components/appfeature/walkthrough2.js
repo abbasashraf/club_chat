@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
-import { Dimensions, Button, View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { Dimensions, View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import Button from './../../Uicomponents/button'
 
 const window = Dimensions.get('window');
 
@@ -20,9 +21,9 @@ class Walkthrough2 extends Component {
                 <View style={styles.WalkthroughContainer}>
                     <View style={styles.Walkthroughinside}>
                         <Text style={{ color: "white", fontSize: 22, fontWeight: 'bold' }}>Discover New Places</Text>
-                       </View>
-                       <View  style={styles.Walkthroughinside2}>
-                        <Text style={{textAlign:'center', color: "white", fontSize: 12,lineHeight:20 }}>Become the expert of the night, discover the best places of your city.</Text>
+                    </View>
+                    <View style={styles.Walkthroughinside2}>
+                        <Text style={{ textAlign: 'center', color: "white", fontSize: 12, lineHeight: 20 }}>Become the expert of the night, discover the best places of your city.</Text>
 
                     </View>
                 </View>
@@ -36,9 +37,14 @@ class Walkthrough2 extends Component {
                         <View style={styles.grayDot}>
                         </View>
                     </View>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Walkthrough3')} style={styles.buttonStyle}>
+                    {/* <TouchableOpacity onPress={() => this.props.navigation.navigate('Walkthrough3')} style={styles.buttonStyle}>
                         <Text style={styles.buttonText}>NEXT</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
+
+                    <Button onPress={() => this.props.navigation.navigate('Walkthrough3')}
+                        width={window.width - 200} height={40}>
+                        NEXT
+                    </Button>
                 </View>
             </View>
 
@@ -94,17 +100,17 @@ const styles = StyleSheet.create({
         // borderWidth: 4,
     },
     Walkthroughinside: {
-        marginTop:10,                
+        marginTop: 10,
         alignItems: 'center',
-        width: (window.width / 2)+40,
-        justifyContent: 'center', 
-          
+        width: (window.width / 2) + 40,
+        justifyContent: 'center',
+
     },
-    Walkthroughinside2:{
-        marginTop:10,        
+    Walkthroughinside2: {
+        marginTop: 10,
         alignItems: 'center',
         width: (window.width / 2) + 50,
-        justifyContent: 'center', 
+        justifyContent: 'center',
     },
     buttonContainer: {
         flex: 1,
@@ -115,20 +121,20 @@ const styles = StyleSheet.create({
         // borderWidth: 4,
         paddingTop: 10
     },
-    buttonStyle: {
-        backgroundColor: '#2980b6',
-        borderRadius: 50,
-        width: window.width - 200,
-        height: 40,
-        justifyContent: 'center',
+    // buttonStyle: {
+    //     backgroundColor: '#2980b6',
+    //     borderRadius: 50,
+    //     width: window.width - 200,
+    //     height: 40,
+    //     justifyContent: 'center',
 
-    },
-    buttonText: {
-        color: '#fff',
-        textAlign: 'center',
-        fontWeight: '700',
-        fontSize: 12
-    },
+    // },
+    // buttonText: {
+    //     color: '#fff',
+    //     textAlign: 'center',
+    //     fontWeight: '700',
+    //     fontSize: 12
+    // },
 });
 
 export default Walkthrough2;

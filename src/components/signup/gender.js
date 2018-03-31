@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Dimensions, Button, View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { Dimensions, View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import Button from './../../Uicomponents/button'
 
 const window = Dimensions.get('window');
 
@@ -18,14 +19,24 @@ class Gender extends Component {
                 </View>
                 <View style={styles.formContainer}>
                     <View>
-                        <Text style={{ color: "white", fontSize: 12, fontWeight: 'bold',marginVertical:6 }}>Gender</Text>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('TakePicture')} style={styles.buttonStyle}>
+                        <Text style={{ color: "white", fontSize: 12, fontWeight: 'bold', marginVertical: 6 }}>Gender</Text>
+                        {/* <TouchableOpacity onPress={() => this.props.navigation.navigate('TakePicture')} style={styles.buttonStyle}>
                         <Text style={styles.buttonText}>MALE</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('TakePicture')} style={styles.buttonStyle}>
                         <Text style={styles.buttonText}>FEMALE</Text>
-                    </TouchableOpacity>
-                    </View>                    
+                    </TouchableOpacity> */}
+
+                        <Button
+                            onPress={() => this.props.navigation.navigate('TakePicture')}
+                            width={window.width - 200} marginVertical={10}>
+                            MALE
+                    </Button>
+                        <Button onPress={() => this.props.navigation.navigate('TakePicture')}
+                            width={window.width - 200} marginVertical={10}>
+                            FEMALE
+                    </Button>
+                    </View>
                 </View>
 
                 <View style={styles.buttonContainer}>
@@ -68,21 +79,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    buttonStyle: {
-        backgroundColor: '#2980b6',
-        borderRadius: 50,
-        width: window.width - 200,
-        height: 40,
-        justifyContent: 'center',
-        marginVertical: 8
+    // buttonStyle: {
+    //     backgroundColor: '#2980b6',
+    //     borderRadius: 50,
+    //     width: window.width - 200,
+    //     height: 40,
+    //     justifyContent: 'center',
+    //     marginVertical: 8
 
-    },
-    buttonText: {
-        color: '#fff',
-        textAlign: 'center',
-        fontWeight: '700',
-        fontSize: 12
-    },
+    // },
+    // buttonText: {
+    //     color: '#fff',
+    //     textAlign: 'center',
+    //     fontWeight: '700',
+    //     fontSize: 12
+    // },
 });
 
 export default Gender;

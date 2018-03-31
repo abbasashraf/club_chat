@@ -8,18 +8,28 @@ import Login from './src/components/login/login'
 
 const RootStack = StackNavigator(
   {
+    TakePicture: {
+      screen: TakePicture,
+    },
+    BirthDate: {
+      screen: BirthDate,
+    },
+    // Login: {
+    //   screen: Login,
+    // },
     Walkthrough1: {
       screen: Walkthrough1,
     },
     Walkthrough2: {
       screen: Walkthrough2,
     },
+    Gender: {
+      screen: Gender,
+    },
     Walkthrough3: {
       screen: Walkthrough3,
     },
-    Login: {
-      screen: Login,
-    },
+
     Mail: {
       screen: Mail,
     },
@@ -29,15 +39,7 @@ const RootStack = StackNavigator(
     Password: {
       screen: Password,
     },
-    BirthDate: {
-      screen: BirthDate,
-    },
-    Gender: {
-      screen: Gender,
-    },
-    TakePicture: {
-      screen: TakePicture,
-    },
+
     //   Details: {
     //     screen: DetailsScreen,
     //   },
