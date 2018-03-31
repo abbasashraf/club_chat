@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native'
 import { StackNavigator, } from 'react-navigation';
 import { Gender, BirthDate, Mail, Password, TakePicture, Surname } from './src/components/signup';
-import { Walkthrough1, Walkthrough2, Walkthrough3 } from './src/components/appfeature'
+import { Walkthrough1 } from './src/components/appfeature'
 import Login from './src/components/login/login'
-
 
 const RootStack = StackNavigator(
   {
@@ -20,14 +19,9 @@ const RootStack = StackNavigator(
     Walkthrough1: {
       screen: Walkthrough1,
     },
-    Walkthrough2: {
-      screen: Walkthrough2,
-    },
+    
     Gender: {
       screen: Gender,
-    },
-    Walkthrough3: {
-      screen: Walkthrough3,
     },
 
     Mail: {
@@ -114,4 +108,3 @@ export default class App extends Component {
     );
   }
 }
-

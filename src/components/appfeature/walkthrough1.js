@@ -6,50 +6,102 @@ import Button from './../../Uicomponents/button'
 const window = Dimensions.get('window');
 
 class Walkthrough1 extends Component {
-    state = {}
-    render() {
-        return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+  Walkthroughs = [
+    {
+      title: "Meet New Friends",
+      Desc: " Thousand of new People to meet and have fun with.",
+      img: require("../../pic.jpg")
+    },
+    {
+      title: "Discover New Places",
+      Desc:
+        "Become the expert of the night, discover the best places of your city.",
+      img: require("../../pic.jpg")
+    },
+    {
+      title: "Invite your Friends",
+      Desc: "Invite your Friends to the best places you have discover",
+      img: require("../../pic.jpg")
+    }
+  ];
+  state = {
+    title: this.Walkthroughs[0].title,
+    desc: this.Walkthroughs[0].desc,
+    img: this.Walkthroughs[0].img,
+    id: 0
+  };
+  ChangeScreen() {
+    if (this.state.id == 3) {
+      this.props.navigation.navigate("Surname");
+    } else {
+      this.setState({ id: this.state.id + 1 });
+      this.setState({
+        title: this.Walkthroughs[this.state.id].title,
+        desc: this.Walkthroughs[this.state.id].desc,
+        img: this.Walkthroughs[this.state.id].img
+      });
+    }
+  }
+  getStyles(id)
+  {
+      if(id==this.state.id)
+      {
+          return { width: 8, height: 8, backgroundColor: "white", borderRadius: 50, marginHorizontal: 6 };
+      }
+      else{
+          return { width: 8, height: 8, backgroundColor: "gray", borderRadius: 50, marginHorizontal: 6 };
+      }
+  }
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Image style={styles.imageStyle} source={this.state.img} />
+        <View style={styles.titleContainer}>
+          <Text style={{ color: "white", fontSize: 22, fontWeight: "bold" }}>
+            CLUB CHAT
+          </Text>
+        </View>
+        <View style={styles.WalkthroughContainer}>
+          <View style={styles.Walkthroughinside}>
+            <Text style={{ color: "white", fontSize: 22, fontWeight: "bold" }}>
+              {this.state.title}
+            </Text>
+          </View>
+          <View style={styles.Walkthroughinside2}>
+            <Text
+              style={{
+                textAlign: "center",
+                color: "white",
+                fontSize: 12,
+                lineHeight: 20
+              }}
+            >
+              {this.state.desc}
+            </Text>
+          </View>
+        </View>
 
-                <Image
-                    style={styles.imageStyle}
-                    source={require('../../pic.jpg')}
-                />
-                <View style={styles.titleContainer}>
-                    <Text style={{ color: "white", fontSize: 22, fontWeight: 'bold' }}>CLUB CHAT</Text>
-                </View>
-                <View style={styles.WalkthroughContainer}>
-                    <View style={styles.Walkthroughinside}>
-                        <Text style={{ color: "white", fontSize: 22, fontWeight: 'bold' }}>Meet New Friends</Text>
-                    </View>
-                    <View style={styles.Walkthroughinside2}>
-                        <Text style={{ textAlign: 'center', color: "white", fontSize: 12, lineHeight: 20 }}>Thousand of new People to meet and have fun with.</Text>
-
-                    </View>
-                </View>
-
-                <View style={styles.buttonContainer}>
-                    <View style={styles.dotContainer}>
-                        <View style={styles.whiteDot}>
-                        </View>
-                        <View style={styles.grayDot}>
-                        </View>
-                        <View style={styles.grayDot}>
-                        </View>
-                    </View>
-                    {/* <TouchableOpacity onPress={() => this.props.navigation.navigate('Walkthrough2')} style={styles.buttonStyle}>
+        <View style={styles.buttonContainer}>
+          <View style={styles.dotContainer}>
+            <View style={this.getStyles(1)} />
+            <View style={this.getStyles(2)} />
+            <View style={this.getStyles(3)} />
+          </View>
+          {/* <TouchableOpacity onPress={() => this.props.navigation.navigate('Walkthrough2')} style={styles.buttonStyle}>
                         <Text style={styles.buttonText}>NEXT</Text>
                     </TouchableOpacity> */}
 
-                    <Button onPress={() => this.props.navigation.navigate('Walkthrough2')}
-                        width={window.width - 200} height={40}>
-                        NEXT
-                    </Button>
-                </View>
-            </View>
-
-        );
-    }
+          <Button
+            onPress={() => this.ChangeScreen()}
+            width={window.width - 200}
+            height={40}
+          >
+            NEXT
+          </Button>
+        </View>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
