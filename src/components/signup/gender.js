@@ -7,42 +7,43 @@ const window = Dimensions.get('window');
 class Gender extends Component {
     state = {}
     render() {
-        return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        return <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+            <Image style={styles.imageStyle} source={require("../../pic.jpg")} />
+            <View style={styles.titleContainer}>
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 22,
+                  fontWeight: "bold"
+                }}
+              >
+                CLUB CHAT
+              </Text>
+            </View>
+            <View style={styles.formContainer}>
+              <View>
+                <Text
+                  style={{
+                    color: "white",
+                    fontSize: 12,
+                    fontWeight: "bold",
+                    marginVertical: 6
+                  }}
+                >
+                  Gender
+                </Text>
 
-                <Image
-                    style={styles.imageStyle}
-                    source={require('../../pic.jpg')}
-                />
-                <View style={styles.titleContainer}>
-                    <Text style={{ color: "white", fontSize: 22, fontWeight: 'bold' }}>CLUB CHAT</Text>
-                </View>
-                <View style={styles.formContainer}>
-                    <View>
-                        <Text style={{ color: "white", fontSize: 12, fontWeight: 'bold', marginVertical: 6 }}>Gender</Text>
-                       
-                        <Button
-                            onPress={() => this.props.navigation.navigate('TakePicture')}
-                            width={window.width - 200} 
-                            marginVertical={10}
-                            height={40}>
-                            MALE
-                    </Button>
-                        <Button onPress={() => this.props.navigation.navigate('Home')}
-                            width={window.width - 200} 
-                            marginVertical={10}
-                            height={40}>
-                            FEMALE
-                    </Button>
-                    </View>
-                </View>
-
-                <View style={styles.buttonContainer}>
-
-                </View>
+                <Button onPress={() => this.props.navigation.navigate("TakePicture")} width={window.width - 200} marginVertical={10} height={40}>
+                  MALE
+                </Button>
+                <Button onPress={() => this.props.navigation.navigate("TakePicture")} width={window.width - 200} marginVertical={10} height={40}>
+                  FEMALE
+                </Button>
+              </View>
             </View>
 
-        );
+            <View style={styles.buttonContainer} />
+          </View>;
     }
 }
 
