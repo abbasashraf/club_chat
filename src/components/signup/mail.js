@@ -5,52 +5,81 @@ import Button from './../../Uicomponents/button'
 const window = Dimensions.get('window');
 
 class Mail extends Component {
-    state = {}
-    render() {
-        return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+  inputs = [
+    {
+      Placeholder: "Mail",
+      Value: "",
+      id: 0
+    },
+    {
+      Placeholder: "Password",
+      Value: "",
+      id: 1
+    },
+    {
+      Placeholder: "Surname",
+      Value: "",
+      id: 2
+    }
+  ];
+  state = {
+    Placeholder: "Mail",
+    Value: "",
+    id: 0
+  };
+  ChangeScreen() {
+    if (this.state.id == 2) {
+      this.props.navigation.navigate("Gender");
+    } else {
+      this.setState({
+        id: this.state.id + 1,
+        Placeholder: this.inputs[this.state.id+1].Placeholder
+      });
+     
+    }
+  }
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Image style={styles.imageStyle} source={require("../../pic.jpg")} />
+        <View style={styles.titleContainer}>
+          <Text style={{ color: "white", fontSize: 22, fontWeight: "bold" }}>
+            CLUB CHAT
+          </Text>
+        </View>
+        <View style={styles.formContainer}>
+          <View>
+            <TextInput
+              style={styles.input}
+              underlineColorAndroid="transparent"
+              autoCapitalize="none"
+              onChange={ev => this.inputs[this.state.id].value=ev.nativeEvent.text}
+              autoCorrect={false}
+              keyboardType="email-address"
+              returnKeyType="next"
+              placeholder={this.state.Placeholder}
+              placeholderTextColor="rgba(225,225,225,0.8)"
+            />
+          </View>
+        </View>
 
-                <Image
-                    style={styles.imageStyle}
-                    source={require('../../pic.jpg')}
-                />
-                <View style={styles.titleContainer}>
-                    <Text style={{ color: "white", fontSize: 22, fontWeight: 'bold' }}>CLUB CHAT</Text>
-                </View>
-                <View style={styles.formContainer}>
-
-                    <View>
-                        <TextInput style={styles.input}
-                            underlineColorAndroid='transparent'
-                            autoCapitalize="none"
-                            onChange={ev => this.setState({ email: ev.nativeEvent.text })}
-                            autoCorrect={false}
-                            keyboardType='email-address'
-                            returnKeyType="next"
-                            placeholder='Email Address'
-                            placeholderTextColor='rgba(225,225,225,0.8)' />
-                    </View>
-                </View>
-
-                <View style={styles.buttonContainer}>
-                    {/* <TouchableOpacity onPress={() => this.props.navigation.navigate('Surname')} style={styles.buttonStyle}>
+        <View style={styles.buttonContainer}>
+          {/* <TouchableOpacity onPress={() => this.props.navigation.navigate('Surname')} style={styles.buttonStyle}>
                         <Text style={styles.buttonText}>NEXT</Text>
                     </TouchableOpacity> */}
 
-                    <Button
-                        width={window.width - 200}
-                        onPress={() => this.props.navigation.navigate('Surname')}
-                        height={40}>
-                        NEXT
-                    </Button>
-                </View>
-            </View>
-
-        );
-    }
+          <Button
+            width={window.width - 200}
+            onPress={() => this.ChangeScreen()}
+            height={40}
+          >
+            NEXT
+          </Button>
+        </View>
+      </View>
+    );
+  }
 }
-
-
 
 const styles = StyleSheet.create({
     imageStyle: {
@@ -86,7 +115,6 @@ const styles = StyleSheet.create({
         width: window.width,
         alignItems: 'center',
         justifyContent: 'center',
-
 
     },
     input: {

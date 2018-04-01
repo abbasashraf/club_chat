@@ -7,14 +7,18 @@ import Camera from "react-native-camera";
 const window = Dimensions.get('window');
 
 class TakePicture extends Component {
-  state = {};
+  constructor(props)
+  {
+    super(props);
+   
+  }
   takePicture() {
     const options = {};
     //options.location = ...
     this.camera
       .capture({ metadata: options })
-      .then(data => this.props.navigation.navigate("Walkthrough1"))
-      .catch(err => this.props.navigation.navigate("Walkthrough1"));
+      .then(data => this.props.navigation.navigate("Home"))
+      .catch(err => this.props.navigation.navigate("Home"));
   }
   render() {
     return (

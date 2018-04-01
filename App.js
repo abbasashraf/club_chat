@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native'
 import { StackNavigator, } from 'react-navigation';
-import { Gender, BirthDate, Mail, Password, TakePicture, Surname } from './src/components/signup';
-import { Walkthrough1 } from './src/components/appfeature'
-import Login from './src/components/login/login'
+import { Gender, BirthDate, Mail, TakePicture } from './src/components/signup';
+import { Walkthrough1 } from './src/components/appfeature';
+import Home from './src/components/mainnavigation/home'
+import Login from './src/components/login/login';
 
 const RootStack = StackNavigator(
   {
@@ -27,12 +28,9 @@ const RootStack = StackNavigator(
     Mail: {
       screen: Mail,
     },
-    Surname: {
-      screen: Surname,
-    },
-    Password: {
-      screen: Password,
-    },
+    Home:{
+      screen:Home,
+    }
 
     //   Details: {
     //     screen: DetailsScreen,

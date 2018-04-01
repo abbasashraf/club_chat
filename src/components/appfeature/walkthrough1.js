@@ -34,12 +34,13 @@ class Walkthrough1 extends Component {
     if (this.state.id == 3) {
       this.props.navigation.navigate("Surname");
     } else {
-      this.setState({ id: this.state.id + 1 });
       this.setState({
-        title: this.Walkthroughs[this.state.id].title,
-        desc: this.Walkthroughs[this.state.id].desc,
-        img: this.Walkthroughs[this.state.id].img
+        id: this.state.id + 1,
+        title: this.Walkthroughs[this.state.id+1].title,
+        desc: this.Walkthroughs[this.state.id+1].desc,
+        img: this.Walkthroughs[this.state.id+1].img
       });
+     
     }
   }
   getStyles(id)

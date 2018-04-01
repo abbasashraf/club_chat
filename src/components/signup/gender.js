@@ -20,13 +20,7 @@ class Gender extends Component {
                 <View style={styles.formContainer}>
                     <View>
                         <Text style={{ color: "white", fontSize: 12, fontWeight: 'bold', marginVertical: 6 }}>Gender</Text>
-                        {/* <TouchableOpacity onPress={() => this.props.navigation.navigate('TakePicture')} style={styles.buttonStyle}>
-                        <Text style={styles.buttonText}>MALE</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('TakePicture')} style={styles.buttonStyle}>
-                        <Text style={styles.buttonText}>FEMALE</Text>
-                    </TouchableOpacity> */}
-
+                       
                         <Button
                             onPress={() => this.props.navigation.navigate('TakePicture')}
                             width={window.width - 200} 
@@ -34,7 +28,7 @@ class Gender extends Component {
                             height={40}>
                             MALE
                     </Button>
-                        <Button onPress={() => this.props.navigation.navigate('TakePicture')}
+                        <Button onPress={() => this.props.navigation.navigate('Home')}
                             width={window.width - 200} 
                             marginVertical={10}
                             height={40}>
