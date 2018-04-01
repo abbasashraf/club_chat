@@ -29,7 +29,7 @@ class Mail extends Component {
   };
   ChangeScreen() {
     if (this.state.id == 2) {
-      this.props.navigation.navigate("Gender");
+      this.props.navigation.navigate("BirthDate");
     } else {
       this.setState({
         id: this.state.id + 1,
