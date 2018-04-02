@@ -6,10 +6,14 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
-  Image
+  Image,navigationOptions
 } from "react-native";
 import Header from '../../Uicomponents/header';
 class Home extends Component {
+  
+  constructor(props) {
+    super(props);
+  }
   List = [
     {
       title: "Meet a friend",
@@ -29,16 +33,19 @@ class Home extends Component {
     }
   ];
   render() {
-   var Options=[];
-   this.List.forEach(element=>{
-       Options.push(
-           <View key={element.title} style={styles.bgImageWrapper}>
-           <Image style={styles.imageStyle} source={element.img}/>
-           <Text style={styles.title}>{element.title}</Text>
-         </View>);
-   })
+    var Options = [];
+    this.List.forEach(element => {
+      Options.push(
+        <View key={element.title} style={styles.bgImageWrapper}>
+          <Image style={styles.imageStyle} source={element.img} />
+          <Text   style={styles.title}>
+            {element.title}
+          </Text>
+        </View>
+      );
+    });
     return <View style={{ flex: 1 }}>
-        <Header />
+        <Header navigation={this.props.navigation} title={"Menu"} />
         <View style={{ flex: 1 }}>{Options}</View>
       </View>;
   }
@@ -65,7 +72,7 @@ const styles = StyleSheet.create({
     // resizeMode,
     width: window.width,
     height: "100%",
-    opacity: 0.4
+    opacity: 0.75
   },
   title: {
     position: "absolute",

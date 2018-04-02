@@ -1,15 +1,27 @@
 import React, { Component } from "react";
-import { Dimensions, Text,StyleSheet , TouchableOpacity,View } from "react-native";
+import { Dimensions, Text,StyleSheet ,TouchableHighlight, TouchableOpacity,View } from "react-native";
 
 const width = Dimensions.get("window").width;
+
+import Icon from "react-native-vector-icons/FontAwesome";
 class Header extends Component{
+    constructor(props)
+    {
+        super(props)
+    }
     render()
     {
         return <View>
             <View style={styles.toolbar}>
-              <Text style={styles.toolbarButton}>Menu</Text>
-              <Text style={styles.toolbarTitle}>This is the title</Text>
-              <Text style={styles.toolbarButton}>Msg</Text>
+              <TouchableHighlight>
+                <Icon onPress={() => this.props.navigation.navigate("Home")} style={styles.toolbarButton} name="navicon" />
+              </TouchableHighlight>
+              <Text style={styles.toolbarTitle}>
+                {this.props.title}
+              </Text>
+              <TouchableOpacity>
+                <Icon onPress={() => this.props.navigation.navigate("Messages")} style={styles.toolbarButton} name="send-o" />
+              </TouchableOpacity>
             </View>
           </View>;
     }
@@ -26,7 +38,8 @@ const styles = StyleSheet.create({
   toolbarButton: {
     width: 50, //Step 2
     color: "#fff",
-    textAlign: "center"
+    textAlign: "center",
+    fontSize:20
   },
   toolbarTitle: {
     color: "#fff",
