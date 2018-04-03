@@ -13,11 +13,16 @@ class Home extends Component {
   List = [
     {
       title: "Meet a friend",
-      img: require("../../pic3.jpg")
+      img: require("../../pic3.jpg"),
+      
     },
     {
       title: "Event",
-      img: require("../../pic2.jpg")
+      img: require("../../pic2.jpg"),
+      navigator : ()=>{
+        console.log('naivigation')
+        this.props.navigation.navigate("Event")
+      }
     },
     {
       title: "Table Booking",
@@ -32,14 +37,14 @@ class Home extends Component {
    var Options=[];
    this.List.forEach(element=>{
        Options.push(
-           <View key={element.title} style={styles.bgImageWrapper}>
+           <View key={element.title} style={styles.bgImageWrapper} >
            <Image style={styles.imageStyle} source={element.img}/>
-           <Text style={styles.title}>{element.title}</Text>
+           <Text onPress={()=>{element.navigator()}} style={styles.title}>{element.title}</Text>
          </View>);
    })
     return <View style={{ flex: 1 }}>
         <Header />
-        <View style={{ flex: 1 }}>{Options}</View>
+        <View style={{ flex: 1 }} >{Options}</View>
       </View>;
   }
 }
