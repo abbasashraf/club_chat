@@ -6,10 +6,14 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
-  Image
+  Image,navigationOptions
 } from "react-native";
 import Header from '../../Uicomponents/header';
 class Home extends Component {
+  
+  constructor(props) {
+    super(props);
+  }
   List = [
     {
       title: "Meet a friend",
@@ -70,7 +74,7 @@ const styles = StyleSheet.create({
     // resizeMode,
     width: window.width,
     height: "100%",
-    opacity: 0.4
+    opacity: 0.75
   },
   title: {
     position: "absolute",

@@ -13,12 +13,14 @@ class TakePicture extends Component {
    
   }
   takePicture() {
+    this.props.navigation.navigate("Home")
+
     const options = {};
     //options.location = ...
-    this.camera
-      .capture({ metadata: options })
-      .then(data => this.props.navigation.navigate("Home"))
-      .catch(err => this.props.navigation.navigate("Home"));
+    // this.camera
+    //   .capture({ metadata: options })
+    //   .then(data => this.props.navigation.navigate("Home"))
+    //   .catch(err => this.props.navigation.navigate("Home"));
   }
   render() {
     return (

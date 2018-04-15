@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, ScrollView, Dimensions } from 'react-native';
 import Header from '../../Uicomponents/header';
 import SearchBar from '../../Uicomponents/searchbar';
-import Squarebtn from '../../Uicomponents/squarebtn'
+// import Squarebtn from '../../Uicomponents/squarebtn'
 
 
 const width = Dimensions.get("window").width;
@@ -25,12 +25,12 @@ class Event extends Component {
                     backgroundColor: '#131724'
                 }}>
                     <SearchBar />
-                    <Squarebtn 
+                    {/* <Squarebtn 
                         width={width-40}
                         marginVertical={40}
                         height={40}>
                             SIGN IN
-                        </Squarebtn>
+                        </Squarebtn> */}
 
 
 

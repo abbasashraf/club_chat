@@ -5,33 +5,45 @@ import { Gender, BirthDate, Mail, TakePicture } from './src/components/signup';
 import { Walkthrough1 } from './src/components/appfeature';
 import Home from './src/components/mainnavigation/home'
 import Login from './src/components/login/login';
-
+import MessageList from './src/components/messages/messageList';
+import Allmessages from './src/components/messages/allmessages';
+import Event from './src/components/events/event.js'
+import Header from './src/Uicomponents/header'
 const RootStack = StackNavigator(
   {
     Login: {
-      screen: Login,
+      screen: Login
     },
     TakePicture: {
-      screen: TakePicture,
+      screen: TakePicture
     },
     BirthDate: {
-      screen: BirthDate,
+      screen: BirthDate
     },
     Walkthrough1: {
-      screen: Walkthrough1,
+      screen: Walkthrough1
     },
-    
+
     Gender: {
-      screen: Gender,
+      screen: Gender
     },
 
     Mail: {
-      screen: Mail,
+      screen: Mail
     },
-    Home:{
-      screen:Home,
-    }
+    Home: {
+      screen: Home
+    },
+    Messages: {
+      screen: Allmessages
+    },
 
+    Header: {
+      screen: Header
+    },
+    Event: {
+      screen: Event
+    }
     //   Details: {
     //     screen: DetailsScreen,
     //   },
@@ -83,15 +95,13 @@ const RootStack = StackNavigator(
     //   SingleSnack: {
     //     screen: SingleSnack,
     //   },
-
   },
   {
-    headerMode: 'none',
+    headerMode: "none"
   },
   {
-    initialRouteName: 'Walkthrough1',
+    initialRouteName: "Walkthrough1"
   }
-
 );
 
 export default class App extends Component {
